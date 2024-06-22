@@ -165,7 +165,7 @@ neverallow {
 } mdns_service:service_manager find;
 
 # apps may not interact with netd over binder.
-neverallow { appdomain -network_stack } netd:binder call;
+neverallow { non_system_app_set -network_stack } netd:binder call;
 neverallow netd { appdomain -network_stack userdebug_or_eng(`-su') }:binder call;
 
 # If an already existing file is opened with O_CREATE, the kernel might generate
